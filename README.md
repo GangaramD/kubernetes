@@ -34,6 +34,9 @@ Below changes are to be performed after following the guide from the above dashb
               args:
                 - --auto-generate-certificates
                 - --authentication-mode=basic   #add this value in dashboard.yml
+                
+    Re-Deploy the dashboard deployment 
+    
 2. This will enable Basic login in the dashboard login page.
 
 3. Now in the api server config file available at "/etc/kubernetes/manifests/kube-apiserver.yaml"  add the below option.
@@ -43,11 +46,13 @@ Below changes are to be performed after following the guide from the above dashb
         - command:
           - kube-apiserver
           
-          - --basic-auth-file=/etc/kubernetes/pki/user.csv  # Add this Line under the conatiner command section. The auth file location can be any in the server
+          - --basic-auth-file=/etc/kubernetes/pki/basic_auth.csv  # Add this Line under the container command section. The auth file location can be any in the server
           
 4. Also create a password file of formate .csv which containe below values.
                 
-                  password,user,uid    # Content of user.csv file
+                  password,user,uid    # Content of basic_auth.csv file
+                  
+                  Ex: admin123@@,admin,3
 
 5. Basically after updating the api-server file the api-service pod will restart by it self if not then restart the pod.
 
