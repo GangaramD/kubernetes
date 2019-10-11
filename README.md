@@ -1,22 +1,28 @@
 # kubernetes
 Kubernetes playground
 
-From dashboard directory.
+# From dashboard directory.
 
 1. Run the influxdb.yaml
-       kubectl apply -f influxdb.yaml
+
+              kubectl apply -f influxdb.yaml             
 2. Run the heapster.yaml
-        kubectl apply -f heapster.yaml
+
+       kubectl apply -f heapster.yaml
 3. Run the dashboard.yaml
+       
         kubectl apply -f dashboard.yaml
 4. Run the sa_cluster_admin.yaml
+
         kubectl apply -f sa_cluster_admin.yaml
 
 5. To get the login Token use the below commands.
-     kubectl describe sa dashboard-admin -n kube-system  #This will give the secret used for the service account.
+
+            kubectl describe sa dashboard-admin -n kube-system  #This will give the secret used for the service account.
      
 6. List the secret use for the dashbaord-admin service account and then run the describe cmd on the secret  to get the token value.
-       kubectl describe secret dashboard-admin-token-vg234  # output the token and then use that token to login to the dashboard
+
+              kubectl describe secret dashboard-admin-token-vg234  # output the token and then use that token to login to the dashboard
      
 
 
