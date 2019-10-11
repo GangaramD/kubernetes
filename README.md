@@ -2,6 +2,7 @@
 Kubernetes playground
 
 # From dashboard directory.
+All the below services and deployments runs in the kube-system namespace if you want to change then u can update in the files
 
 1. Run the influxdb.yaml
 
