@@ -23,7 +23,7 @@ All the below services and deployments runs in the kube-system namespace if you 
      
 6. List the secret use for the dashbaord-admin service account and then run the describe cmd on the secret  to get the token value.
 
-              kubectl describe secret dashboard-admin-token-vg234  # output the token and then use that token to login to the dashboard
+              kubectl describe secret dashboard-admin-token-vg234 -n kube-system  # output the token and then use that token to login to the dashboard
      
 
 
